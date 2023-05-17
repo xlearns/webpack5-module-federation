@@ -1,20 +1,19 @@
 module.exports = {
   "env": {
-    "es6": true,
     "browser": true,
-    "node": true
+    "es6": true
   },
   "plugins": [
     "prettier",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "react",
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
-    "parser": "@typescript-eslint/parser",
     "sourceType": "module"
   },
   "extends": [],
   "overrides": [],
-  "settings": {},
   "rules": {}
 }
