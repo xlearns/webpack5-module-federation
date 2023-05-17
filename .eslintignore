@@ -6,3 +6,4 @@ playground
 *.test.tsx
 *.test.*
 examples
+*.html

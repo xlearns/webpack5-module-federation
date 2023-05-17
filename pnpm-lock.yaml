@@ -45,6 +45,7 @@ importers:
       '@babel/core': ^7.21.8
       '@babel/preset-react': ^7.18.6
       babel-loader: ^9.1.2
+      external-remotes-plugin: ^1.0.0
       html-webpack-plugin: ^5.5.1
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -58,6 +59,7 @@ importers:
       '@babel/core': 7.21.8
       '@babel/preset-react': 7.18.6_@babel+core@7.21.8
       babel-loader: 9.1.2_631eda50edd1776db3160a7dc329d905
+      external-remotes-plugin: 1.0.0_webpack@5.82.1
       html-webpack-plugin: 5.5.1_webpack@5.82.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -73,6 +75,7 @@ importers:
       '@babel/core': ^7.21.8
       '@babel/preset-react': ^7.18.6
       babel-loader: ^9.1.2
+      external-remotes-plugin: ^1.0.0
       html-webpack-plugin: ^5.5.1
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -86,6 +89,7 @@ importers:
       '@babel/core': 7.21.8
       '@babel/preset-react': 7.18.6_@babel+core@7.21.8
       babel-loader: 9.1.2_631eda50edd1776db3160a7dc329d905
+      external-remotes-plugin: 1.0.0_webpack@5.82.1
       html-webpack-plugin: 5.5.1_webpack@5.82.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -101,6 +105,7 @@ importers:
       '@babel/core': ^7.21.8
       '@babel/preset-react': ^7.18.6
       babel-loader: ^9.1.2
+      external-remotes-plugin: ^1.0.0
       html-webpack-plugin: ^5.5.1
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -114,6 +119,7 @@ importers:
       '@babel/core': 7.21.8
       '@babel/preset-react': 7.18.6_@babel+core@7.21.8
       babel-loader: 9.1.2_631eda50edd1776db3160a7dc329d905
+      external-remotes-plugin: 1.0.0_webpack@5.82.1
       html-webpack-plugin: 5.5.1_webpack@5.82.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -3643,6 +3649,15 @@ packages:
       vary: 1.1.2
     dev: true
 
+  /external-remotes-plugin/1.0.0_webpack@5.82.1:
+    resolution: {integrity: sha512-19cfGfzmPMXkRNpyqOHgndNB07vjk1G1V7IuyixBw8Z1QTc/IOhINy9TbWzDRPTmj64e3STTI1MJE0gI58p7YA==}
+    peerDependencies:
+      webpack: ^5
+    dependencies:
+      webpack: 5.82.1_webpack-cli@5.1.1
+      webpack-sources: 2.3.1
+    dev: true
+
   /fast-deep-equal/3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
     dev: true
@@ -5936,6 +5951,10 @@ packages:
       websocket-driver: 0.7.4
     dev: true
 
+  /source-list-map/2.0.1:
+    resolution: {integrity: sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==}
+    dev: true
+
   /source-map-support/0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
     dependencies:
@@ -6656,6 +6675,14 @@ packages:
     dependencies:
       clone-deep: 4.0.1
       wildcard: 2.0.1
+    dev: true
+
+  /webpack-sources/2.3.1:
+    resolution: {integrity: sha512-y9EI9AO42JjEcrTJFOYmVywVZdKVUfOvDUPsJea5GIr1JOEGFVqwlY2K098fFoIjOkDzHn2AjRvM8dsBZu+gCA==}
+    engines: {node: '>=10.13.0'}
+    dependencies:
+      source-list-map: 2.0.1
+      source-map: 0.6.1
     dev: true
 
   /webpack-sources/3.2.3:

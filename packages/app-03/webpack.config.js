@@ -1,29 +1,30 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
+const ExternalTemplateRemotesPlugin = require('external-remotes-plugin')
+const path = require('path')
 
 module.exports = {
-  entry: "./src/index",
+  entry: './src/index',
   cache: false,
 
-  mode: "development",
-  devtool: "source-map",
+  mode: 'development',
+  devtool: 'source-map',
 
   devServer: {
-    static: path.join(__dirname, "dist"),
+    static: path.join(__dirname, 'dist'),
     port: 3003,
   },
 
   optimization: {
-    minimize: false
+    minimize: false,
   },
 
   output: {
-    publicPath: "http://localhost:3003/"
+    publicPath: 'http://localhost:3003/',
   },
 
   resolve: {
-    extensions: [".jsx", ".js", ".json",".ts",".tsx"]
+    extensions: ['.jsx', '.js', '.json', '.ts', '.tsx'],
   },
 
   module: {
@@ -31,42 +32,42 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: require.resolve("babel-loader"),
+        loader: require.resolve('babel-loader'),
         options: {
-          presets: [require.resolve("@babel/preset-react")]
-        }
+          presets: [require.resolve('@babel/preset-react')],
+        },
       },
       {
-        test: /\.tsx?$/, 
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: 'ts-loader',
         options: {
           // disable type checker - we will use it in fork plugin
-          transpileOnly: true
-        }
-      }
-    ]
+          transpileOnly: true,
+        },
+      },
+    ],
   },
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "app_03",
-      library: { type: "var", name: "app_03" },
-      filename: "remoteEntry.js",
+      name: 'app_03',
       remotes: {
-        app_01: "app_01",
-        app_02: "app_02"
+        app_01: 'app_01@[app1Url]/remoteEntry.js',
+        app_03: 'app_03@[app3Url]/remoteEntry.js',
       },
+      filename: 'remoteEntry.js',
       exposes: {
-        Button: "./src/Button"
+        './Button': './src/Button',
       },
       shared: {
-        react: { singleton: true,eager: true },
-        "react-dom": { singleton: true,eager: true }
-      }
+        react: { singleton: true, eager: true },
+        'react-dom': { singleton: true, eager: true },
+      },
     }),
+    new ExternalTemplateRemotesPlugin(),
     new HtmlWebpackPlugin({
-      template: "./public/index.html"
-    })
-  ]
-};
+      template: './public/index.html',
+    }),
+  ],
+}

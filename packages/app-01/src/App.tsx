@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 
-const Button2 = React.lazy(() => import('app_02/Button2'))
-// const Button3 = React.lazy(() => import('app_03/Button3'))
+const Button2 = React.lazy(() => import('app_02/Button'))
+const Button3 = React.lazy(() => import('app_03/Button'))
 
 function App() {
   return (
     <>
       <div>app01-home</div>
-      <Button2 />
+      <Suspense fallback={'loading...'}>
+        <Button2 />
+      </Suspense>
+      <Button3 />
     </>
   )
 }
